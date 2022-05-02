@@ -385,7 +385,26 @@ public class Logic1
     /// </summary>
     public int TeaParty(int tea, int candy)
     {
-        throw new NotImplementedException();
+        if (tea < 5 || candy < 5)
+        {
+            return 0;
+        }
+        else if ((tea / candy) > 1 || (candy / tea) > 1)
+        {
+            return 2;
+        }
+        else
+        {
+            return 1;
+        }
+       
+       
+        //if (tea < candy + 5 || candy < tea + 5) { return 0; }
+       
+
+
+
+        //throw new NotImplementedException();
     }
 
     /// <summary>
@@ -399,7 +418,20 @@ public class Logic1
     /// </summary>
     public string FizzString(string str)
     {
-        throw new NotImplementedException();
+       
+        if (str[0] == 'f' && str[str.Length - 1] == 'b')
+        {
+            return "FizzBuzz";
+        }
+        else if (str[str.Length - 1] == 'b')
+        {
+            return "Buzz";
+        }else if (str[0] == 'f')
+        {
+            return "Fizz";
+        }else {
+            return str; }
+       // throw new NotImplementedException();
     }
 
     /// <summary>
@@ -415,7 +447,24 @@ public class Logic1
     /// </summary>
     public string FizzString2(int n)
     {
-        throw new NotImplementedException();
+
+        //return "16!";
+        if(n % 3 == 0 && n % 5 == 0)
+        {
+              return "FizzBuzz!";
+        }
+        else if(n % 3 == 0)
+        {
+            return "Fizz!";
+        }
+       else if(n % 5 == 0)
+        {
+           return  "Buzz!";
+           
+        }
+        else { return Convert.ToString(n) + "!"; }
+     
+      
     }
 
     /// <summary>
