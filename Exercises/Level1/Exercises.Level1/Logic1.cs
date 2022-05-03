@@ -476,7 +476,22 @@ public class Logic1
     /// </summary>
     public bool TwoAsOne(int a, int b, int c)
     {
-        throw new NotImplementedException();
+
+        if (a == 0 || b == 0 || c == 0)
+        {
+            return true;
+        }else if (Math.Abs(a) == Math.Abs(b) || Math.Abs(a) == Math.Abs(c) || Math.Abs(b) == Math.Abs(c))
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
+       
+    
+        
+       
+        //throw new NotImplementedException();
     }
 
     /// <summary>
@@ -489,7 +504,17 @@ public class Logic1
     /// </summary>
     public bool InOrder(int a, int b, int c, bool bOk)
     {
-        throw new NotImplementedException();
+        if(b > a && c > b && !bOk)
+        {
+            return true;
+        }
+        else if(bOk && c > b)
+        {
+            return true;
+        }
+        else { return false;}
+
+       // throw new NotImplementedException();
     }
 
     /// <summary>
@@ -503,7 +528,21 @@ public class Logic1
     /// </summary>
     public bool InOrderEqual(int a, int b, int c, bool bOk)
     {
-        throw new NotImplementedException();
+        if (!bOk)
+        {
+            
+            if(a < b && b < c)
+            {
+                return true;
+            }
+          
+        }
+        else if(a <= b && b <= c && a <= b && bOk)
+        {
+            return true;
+        }
+        return false;
+       // throw new NotImplementedException();
     }
 
     /// <summary>
@@ -517,7 +556,18 @@ public class Logic1
     /// </summary>
     public bool LastDigit(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        int a1 = a % 10;
+        int b1 = b % 10;
+        int c1 = c % 10;
+        if(a1 == b1 || a1 == c1 || b1 == c1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        //throw new NotImplementedException();
     }
 
     /// <summary>
@@ -530,7 +580,15 @@ public class Logic1
     /// </summary>
     public bool LessBy10(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        int starp1 = Math.Abs(a - b);
+        int starp2 = Math.Abs(a - c);
+        int starp3 = Math.Abs(b - c);
+        if (starp1 >= 10 || starp2 >= 10 || starp3 >= 10)
+        {
+            return true;
+        }
+        return false;
+        //throw new NotImplementedException();
     }
 
     /// <summary>
@@ -544,7 +602,22 @@ public class Logic1
     /// </summary>
     public int WithoutDoubles(int die1, int die2, bool noDoubles)
     {
-        throw new NotImplementedException();
+       
+        if (noDoubles)
+        {
+           if(die1 == die2 && die1 == 6)
+            {
+                return 7;
+            }else if(die1 == die2)
+            {
+                return die1 + die2 + 1;
+            }
+        }
+       
+            return die1 + die2;
+        
+
+        //throw new NotImplementedException();
     }
 
     /// <summary>
@@ -559,7 +632,24 @@ public class Logic1
     /// </summary>
     public int MaxMod5(int a, int b)
     {
-        throw new NotImplementedException();
+        if(a == b) { return 0; }
+
+        int balanceA = a % 5;
+        int balanceB = b % 5;
+
+        if(balanceA == balanceB)
+        {
+            if(a > b) { 
+                return b;
+            }
+            else { return a; }
+        }
+        if (a < b)
+        {
+            return b;
+        }
+        else { return a; }
+        //throw new NotImplementedException();
     }
 
     /// <summary>
@@ -574,7 +664,11 @@ public class Logic1
     /// </summary>
     public int RedTicket(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        if(a + b + c == 6) { return 10; }
+        if(a == b && a == c) { return 5; }
+        if(a != c && a != b) { return 1; }
+        return 0;
+       // throw new NotImplementedException();
     }
 
     /// <summary>
@@ -588,7 +682,11 @@ public class Logic1
     /// </summary>
     public int GreenTicket(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        if(a != b && a != c && b != c) { return 0; }
+        if(a == b && a == c && b == c) { return 20; }
+        if(a == b || a == c || b == c ) { return 10; }
+        return -1;
+       // throw new NotImplementedException();
     }
 
     /// <summary>
@@ -603,7 +701,14 @@ public class Logic1
     /// </summary>
     public int BlueTicket(int a, int b, int c)
     {
-        throw new NotImplementedException();
+        
+        int ab = a + b;
+        int bc = b + c;
+        int ac = a + c;
+        if(ab == 10 || bc == 10 || ac == 10) { return 10; }
+        if(ab - bc >= 10 || ab - ac >= ac) { return 5; }
+        return 0;
+       // throw new NotImplementedException();
     }
 
     /// <summary>
@@ -617,7 +722,15 @@ public class Logic1
     /// </summary>
     public bool ShareDigit(int a, int b)
     {
-        throw new NotImplementedException();
+        int leftA = a / 10;
+        int rightA = a % 10;
+        int leftB = b / 10;
+        int rightB = b % 10;
+        if(leftA == rightB || leftA == leftB || rightA == rightB || rightA == leftB) 
+        {
+            return true; 
+        }return false;
+        //throw new NotImplementedException();
     }
 
     /// <summary>
@@ -632,7 +745,16 @@ public class Logic1
     /// </summary>
     public int SumLimit(int a, int b)
     {
-        throw new NotImplementedException();
+        string str;
+        str = Convert.ToString(a);
+        int digitSizeA = str.Length;
+      
+        str = Convert.ToString(a + b);
+        int digitSizeSum = str.Length;
+        if (digitSizeA == digitSizeSum) { return a + b; }
+        if(digitSizeSum > digitSizeA) { return a; }
+        return 0;
+        //throw new NotImplementedException();
     }
 }
 
